@@ -9,7 +9,7 @@ services:
     ports:
       - 81:3000
     working_dir: /app
-#    command: [ 'yarn', 'start' ]
+    command: [ 'yarn', 'start' ]
     volumes:
       - .:/app
 
