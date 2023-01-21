@@ -1,0 +1,13 @@
+version: '3.6'
+services:
+  app:
+    image: node:19.3.0-alpine3.17
+    tty: true
+    stdin_open: true
+    environment:
+      HOST: 0.0.0.0
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+
