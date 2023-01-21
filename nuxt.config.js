@@ -45,7 +45,20 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     'vue-sweetalert2/nuxt',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    ['nuxt-mail', {
+      message: {
+        to: 'thangtran@viecviet.vn',
+      },
+      smtp: {
+        host: "smtp.mailtrap.io",
+        port: 2525,
+        auth: {
+          user: '724486f7243224',
+          pass: 'b429fb622c8a01',
+        },
+      },
+    }],
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

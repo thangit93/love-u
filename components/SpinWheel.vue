@@ -151,8 +151,10 @@ export default {
         this.times--;
         Cookies.set('times', this.times)
       }
-      $nuxt.$axios.post('https://hooks.slack.com/services/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', {
-        text: `Thông báo giải thưởng: ${prize}`
+      this.$mail.send({
+        from: 'Honey',
+        subject: 'Trao thưởng',
+        text: `Thông báo giải thưởng ${prize}`,
       })
     }
   },
