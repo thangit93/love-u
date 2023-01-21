@@ -151,10 +151,8 @@ export default {
         this.times--;
         Cookies.set('times', this.times)
       }
-      this.$mail.send({
-        from: 'Honey',
-        subject: 'Trao thưởng',
-        text: `Thông báo giải thưởng ${prize}`,
+      $nuxt.$axios.post('/api/send', {
+        mess: `Thông báo giải thưởng: ${prize}`
       })
     }
   },

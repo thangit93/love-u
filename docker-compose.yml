@@ -7,9 +7,33 @@ services:
     environment:
       HOST: 0.0.0.0
     ports:
-      - 80:3000
+      - 81:3000
     working_dir: /app
-    command: ['yarn', 'start']
+#    command: [ 'yarn', 'start' ]
     volumes:
       - .:/app
+
+  nginx:
+    build:
+      dockerfile: ./docker/nginx/Dockerfile
+      context: .
+    ports:
+      - 82:80
+    volumes:
+      - ./api/.:/app
+    links:
+      - api
+
+  api:
+    build:
+      dockerfile: ./docker/api/Dockerfile
+      context: .
+      args:
+        DOCKER_UID: ${DOCKER_UID:-0}
+        DOCKER_GID: ${DOCKER_GID:-0}
+    tty: true
+    stdin_open: true
+    command: sh /docker-entrypoint.sh
+    volumes:
+      - ./api/.:/app
 

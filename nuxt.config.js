@@ -3,7 +3,7 @@ export default {
   ssr: false,
 
   axios: {
-    baseURL: 'https://nammoi.viecviet.vn',
+    baseURL: 'https://thongbao.viecviet.vn',
   },
 
   // Target: https://go.nuxtjs.dev/config-target
@@ -50,19 +50,6 @@ export default {
   modules: [
     'vue-sweetalert2/nuxt',
     '@nuxtjs/axios',
-    ['nuxt-mail', {
-      message: {
-        to: 'thangtran@viecviet.vn',
-      },
-      smtp: {
-        host: "smtp.mailtrap.io",
-        port: 2525,
-        auth: {
-          user: '724486f7243224',
-          pass: 'b429fb622c8a01',
-        },
-      },
-    }],
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
